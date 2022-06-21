@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using FORUM_WEB_2._0.Models.FrameWorks;
 using FORUM_WEB_2._0.Models;
 using System.IO;
+using System.Data.Entity;
 
 namespace FORUM_WEB_2._0.Controllers
 {
@@ -17,6 +18,7 @@ namespace FORUM_WEB_2._0.Controllers
         public ActionResult PostPage(int id)
         {
             this.id = id;
+            ViewBag.id = id;
             var post = db.BaiDang.Where(x => x.ID_BaiDang == id).FirstOrDefault();
             return View(post);
         }
@@ -157,19 +159,28 @@ namespace FORUM_WEB_2._0.Controllers
             db.SaveChanges();
             return Redirect(Request.UrlReferrer.ToString());
         }
-        [HttpGet]
+        /*[HttpGet]
+        public ActionResult Edit_Comment(int id_comment)
+        {
+            BinhLuan binhLuan = db.BinhLuan.Find(id_comment);
+            return View(binhLuan);
+        }*/
         public ActionResult Edit_Comment(int id_comment)
         {
             BinhLuan binhLuan = db.BinhLuan.Find(id_comment);
             return View(binhLuan);
         }
-        [HttpPost]
-        public ActionResult Edit_Comment(CommentModel model, int id_comment)
+       [HttpPost, ValidateInput(false)]
+        public ActionResult Edit_Comment(BinhLuan cmt)
         {
-            BinhLuan binhLuan = db.BinhLuan.Find(id_comment);
-            binhLuan.NoiDung = model.NoiDung;
-            db.SaveChanges();
-            return Redirect(Request.UrlReferrer.ToString());
+            if (ModelState.IsValid)
+            {
+                db.Entry(cmt).State = EntityState.Modified;
+                db.SaveChanges();
+                return Redirect(Request.UrlReferrer.ToString());
+            }
+            return View(cmt);
+
         }
     }
 }

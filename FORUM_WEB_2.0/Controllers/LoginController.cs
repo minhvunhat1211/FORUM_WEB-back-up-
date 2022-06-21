@@ -36,7 +36,7 @@ namespace FORUM_WEB_2._0.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Tên đăng nhập hoặc tài khoản khum đúng!");
+                    ModelState.AddModelError("", "Tên đăng nhập hoặc tài khoản không đúng!");
                 }
             }
             return View(model);

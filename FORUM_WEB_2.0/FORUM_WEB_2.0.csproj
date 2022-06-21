@@ -150,6 +150,7 @@
     <Compile Include="Controllers\PostPageController.cs" />
     <Compile Include="Controllers\ProfilePageController.cs" />
     <Compile Include="Controllers\RegisterController.cs" />
+    <Compile Include="Controllers\ReportPageController.cs" />
     <Compile Include="Controllers\ThreadPageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -207,6 +208,7 @@
     <Compile Include="Models\Img_ThreadModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\ReportModel.cs" />
     <Compile Include="Models\ThreadModel.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -287,6 +289,8 @@
     <Content Include="Areas\Admin\Views\ChuDesss\Details.cshtml" />
     <Content Include="Areas\Admin\Views\ChuDesss\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\ChuDesss\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\BaiDangs\Img_Post.cshtml" />
+    <Content Include="Areas\Admin\Views\BinhLuans\Img_Comment.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -321,6 +325,11 @@
     <Content Include="Views\ProfilePage\ProfileUser.cshtml" />
     <Content Include="Views\PostPage\Img_Post.cshtml" />
     <Content Include="Views\PostPage\Img_Comment.cshtml" />
+    <Content Include="Views\PostPage\Edit_Comment.cshtml" />
+    <Content Include="Views\ReportPage\ReportPage.cshtml" />
+    <Content Include="Views\ReportPage\ReportNoti.cshtml" />
+    <Content Include="Views\ProfilePage\Ranking.cshtml" />
+    <Content Include="Views\ProfilePage\Other.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -8,7 +8,7 @@ namespace FORUM_WEB_2._0.Models
 {
     public class CommentModel
     {
-        
+        public int ID_BinhLuan { get; set; }
         public string NoiDung { set; get; }
         public DateTime NgayBinhLuan { set; get; }
     }

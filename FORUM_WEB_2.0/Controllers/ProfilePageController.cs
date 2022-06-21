@@ -33,5 +33,21 @@ namespace FORUM_WEB_2._0.Controllers
             db.SaveChanges();
             return Redirect(Request.UrlReferrer.ToString());
         }
+        public ActionResult Ranking()
+        {
+            var lst = new List<Models.FrameWorks.TaiKhoan>();
+            Models.FrameWorks.FORUM_WEB_V2Entities db = new Models.FrameWorks.FORUM_WEB_V2Entities();
+            //lst = db.TaiKhoan.ToList();
+            lst = db.TaiKhoan.OrderByDescending(x => x.SoLuongBaiDang).ToList();
+            //var cnt = db.TaiKhoan.ToList().OrderByDescending(x => x.BaiDang.Count);
+            //ViewBag.ok = cnt;
+            return View(lst);
+        }
+        public ActionResult Other(string tenDangNhap)
+        {
+            Models.FrameWorks.FORUM_WEB_V2Entities db = new Models.FrameWorks.FORUM_WEB_V2Entities();
+            var user = db.TaiKhoan.Where(x => x.TenDangNhap == tenDangNhap).FirstOrDefault();
+            return View(user);
+        }
     }
 }

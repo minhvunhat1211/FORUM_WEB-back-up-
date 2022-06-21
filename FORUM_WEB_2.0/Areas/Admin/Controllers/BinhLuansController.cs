@@ -123,7 +123,12 @@ namespace FORUM_WEB_2._0.Areas.Admin.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        public ActionResult Img_Comment(int id)
+        {
+            var lst = new List<FORUM_WEB_2._0.Models.FrameWorks.Img_BinhLuan>();
+            lst = db.Img_BinhLuan.Where(x => x.ID_BinhLuan == id).ToList();
+            return PartialView(lst);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
